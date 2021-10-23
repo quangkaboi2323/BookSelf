@@ -27,8 +27,10 @@
          </div>
       </div>
       <div class="sb-sidenav-footer">
-         <div class="small">Logged in as:</div>
-         Start Bootstrap
+         <div class="small">Đăng nhập với:</div>
+         <?php             
+            echo "<b><i>".$_SESSION['name']."</b></i>";
+         ?>
       </div>
    </nav>
 </div>
