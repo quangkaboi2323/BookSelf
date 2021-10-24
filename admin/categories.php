@@ -23,7 +23,7 @@ include './php/categories.php';
                            <div class="card-body">
                               <b class="form-control col text-center border border-danger text-danger" style="background-color: #ffe6e6" <?php echo isset($catchErr) ? "" : "hidden" ?>>
                                  <?php echo isset($catchErr) ? $catchErr : "" ?>
-                              </b>                              
+                              </b>
                               <input type="text" name="id" hidden value="<?php echo isset($id) ? $id : '' ?>">
                               <label for="categoryName">Tên thể loại</label>
                               <input type="text" id="categoryName" name="categoryName" class="form-control" placeholder="" value="<?php echo isset($name) ? $name : '' ?>">
@@ -82,23 +82,23 @@ include './php/categories.php';
                                                 <input type="text" value="<?= $row['description'] ?>" name="editDesc" hidden>
                                                 <button class="my-3 btn btn-sm border-dark" name="idCate" value="<?= $row['id'] ?>">Chỉnh sửa</button>
                                                 <!-- Button trigger modal -->
-                                                <input type="button" class="my-3 btn btn-sm border-dark" value="Xóa" data-bs-toggle="modal" data-bs-target="#deleteOrder">
+                                                <input type="button" class="my-3 btn btn-sm border-dark" value="Xóa" data-bs-toggle="modal" data-bs-target="#deleteCate<?= $row['id'] ?>">
                                              </form>
                                              <!-- Modal -->
-                                             <div class="modal fade" id="deleteOrder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                             <div class="modal fade" id="deleteCate<?= $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                    <div class="modal-content">
                                                       <div class="modal-header">
                                                          <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
                                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                       </div>
-                                                      <div class="modal-body h5">
-                                                         Bạn có chắc chắn muốn xóa sản phẩm này
+                                                      <div class="modal-body">
+                                                         Bạn có chắc chắn muốn xóa thể loại <?= $row['name'] ?> này
                                                       </div>
                                                       <div class="modal-footer">
                                                          <form action="./categories.php" method="post">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>                                                            
-                                                            <a href="./php/deleteCate.php?id=<?=$row['id']?>" class="btn btn-danger">Xác nhận</a>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                                            <a href="./php/deleteCate.php?id=<?= $row['id'] ?>" class="btn btn-danger">Xác nhận</a>
                                                          </form>
                                                       </div>
                                                    </div>

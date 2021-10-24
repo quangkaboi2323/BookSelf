@@ -101,28 +101,29 @@ if (isset($_POST['submit'])) {
                                        <form action="./users.php" method="post">
                                           <a href="./editUser.php?id=<?= $row['id'] ?>" class="btn btn-sm border-dark">Chỉnh sửa</a>
                                           <!-- Button trigger modal -->
-                                          <input type="button" class="btn btn-sm border-dark" value="Xóa" data-bs-toggle="modal" data-bs-target="#deleteOrder<?= $row['id'] ?>">
-                                       </form>
-                                       <!-- Modal -->
-                                       <div class="modal fade" id="deleteOrder<?= $row['id'] ?>" tabindex="-1" rolearia-labelledby="exampleModalLabel" aria-hidden="true">
-                                          <div class="modal-dialog">
-                                             <div class="modal-content">
-                                                <div class="modal-header">
-                                                   <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
-                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                   Bạn có chắc chắn muốn xóa sản phẩm này
-                                                </div>
-                                                <div class="modal-footer">
-                                                   <form action="users.php" method="post">
-                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                                      <a href="./php/deleteUser.php?id=<?= $row['id'] ?>" class="btn btn-danger">Xác nhận</a>
-                                                   </form>
+                                          <button type="button" class="btn btn-sm border-dark" data-bs-toggle="modal" data-bs-target="#deleteOrder<?= $row['id'] ?>" data-bs-whatever="@<?= $id ?>">Xóa</button>
+
+                                          <!-- Modal -->
+                                          <div class="modal fade" id="deleteOrder<?= $row['id'] ?>" tabindex="-1" rolearia-labelledby="exampleModalLabel" aria-hidden="true">
+                                             <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                   <div class="modal-header">
+                                                      <h5 class="modal-title" id="deleteOrderLabel">Xác nhận xóa</h5>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                   </div>
+                                                   <div class="modal-body">
+                                                      Bạn có chắc chắn muốn xóa người dùng <?= $row['name'] ?> này
+                                                   </div>
+                                                   <div class="modal-footer">
+                                                      <form action="users.php" method="post">
+                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                                         <a href="./php/deleteUser.php?id=<?= $row['id'] ?>" class="btn btn-danger">Xác nhận</a>
+                                                      </form>
+                                                   </div>
                                                 </div>
                                              </div>
                                           </div>
-                                       </div>
+                                       </form>
                                     </div>
                                  </td>
                               </tr>
