@@ -47,7 +47,7 @@ include './php/categories.php';
                         <div class="card-body">
                            <table id="datatablesSimple">
                               <thead>
-                                 <tr style="border: 1px solid black">
+                                 <tr style="border: 1px solid black;" class="bg-primary text-white">
                                     <th>#</th>
                                     <th>Thông tin thể loại</th>
                                     <th>Chức năng</th>
@@ -69,20 +69,20 @@ include './php/categories.php';
                                     $number = 1;
                                     while ($row = $result->fetch_array()) {
                                  ?>
-                                       <tr bgcolor="<?= $number % 2 == 1 ? "#ffffb3" : '' ?>">
+                                       <tr bgcolor="<?= $number % 2 == 1 ? "#cce6ff" : '' ?>">
                                           <td><?= $number ?></td>
                                           <td>
-                                             <p>Thể loại: <b><?= $row['name'] ?></b></p>
-                                             <p>Mô tả: <span><?= $row['description'] ?></span></p>
+                                             Thể loại: <b><?= $row['name'] ?></b> <br>
+                                             Mô tả: <span><?= $row['description'] ?></span>
                                           </td>
                                           <td class="col text-center">
                                              <form action="./categories.php" method="post">
                                                 <!-- Button edit-->
                                                 <input type="text" value="<?= $row['name'] ?>" name="editName" hidden>
                                                 <input type="text" value="<?= $row['description'] ?>" name="editDesc" hidden>
-                                                <button class="my-3 btn btn-sm border-dark" name="idCate" value="<?= $row['id'] ?>">Chỉnh sửa</button>
+                                                <button class=" btn btn-sm border-dark bg-white" name="idCate" value="<?= $row['id'] ?>">Chỉnh sửa</button>
                                                 <!-- Button trigger modal -->
-                                                <input type="button" class="my-3 btn btn-sm border-dark" value="Xóa" data-bs-toggle="modal" data-bs-target="#deleteCate<?= $row['id'] ?>">
+                                                <input type="button" class=" btn btn-sm border-dark bg-white" value="Xóa" data-bs-toggle="modal" data-bs-target="#deleteCate<?= $row['id'] ?>">
                                              </form>
                                              <!-- Modal -->
                                              <div class="modal fade" id="deleteCate<?= $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

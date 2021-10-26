@@ -41,8 +41,7 @@ if (isset($_POST['submit'])) {
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa người dùng</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa người dùng</h5>                     
                   </div>
                   <div class="modal-body">
                      <label for="name">Tên</label>

@@ -1,15 +1,5 @@
 <?php
 include './menu.php';
-
-if (isset($_POST['submit'])) {
-   $name = $_POST['name'];
-   $username = $_POST['username'];
-   $password = md5($_POST['password']);
-   $type = $_POST['type'];
-
-   $create = "INSERT INTO `users`(`name`, `username`, `password`, `type`) VALUES ('$name','$username','$password','$type')";
-   $result = $conn->query($create);
-}
 ?>
 
 <div id="layoutSidenav">
@@ -64,7 +54,7 @@ if (isset($_POST['submit'])) {
                <div class="card-body">
                   <table id="datatablesSimple">
                      <thead>
-                        <tr>
+                        <tr class="bg-primary text-white">
                            <th>#</th>
                            <th>Tên</th>
                            <th>Tên tài khoản</th>
