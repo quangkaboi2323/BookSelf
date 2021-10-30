@@ -117,7 +117,7 @@ function str_limit($value, $limit = 250, $end = '...')
                                     <p>Mô tả: <i><?= str_limit($row['description_book']) ?></i></p>
                                  </td>
                                  <td><?= $row['name'] ?></td>
-                                 <td><span><?= number_format($row['price'], 3, ',', '.') ?></span>đ</td>
+                                 <td><span><?= number_format($row['price'], 0, ',', '.') ?></span>VNĐ</td>
                                  <td>
                                     <div>
                                        <div class="text-center">
