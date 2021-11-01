@@ -11,69 +11,39 @@ include './header.php';
       <h1 style="font-size: 150px" class="text-success">---<i class="bi bi-book"></i>---</h1>
    </div>
    <hr>
-   <!-- best seller and new products    -->
+   <!-- new products    -->
+   <?php
+   function str_limit($value, $limit = 100, $end = '...')
+   {
+      $limit = $limit - mb_strlen($end); // Take into account $end string into the limit
+      $valuelen = mb_strlen($value);
+      return $limit < $valuelen ? mb_substr($value, 0, mb_strrpos($value, ' ', $limit - $valuelen)) . $end : $value;
+   }
+   //select 4 books newest
+   $newProducts = "SELECT * FROM books ORDER BY date_created DESC LIMIT 4";
+   $result = $conn->query($newProducts);
+   ?>
    <div class="d-flex justify-content-center p-2">
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-2 row-cols-xl-4 justify-content-center">
-         <div class="col mt-1">
-            <div class="card border-success">
-               <div class="card-header bg-white border-0">
-                  <h5 class="card-title">Tiêu đề</h5>
-                  <p class="card-text">Tác giả</p>
-                  <p class="card-text">Giá</p>
-               </div>
-               <div class="card-body ">
-                  <img src="./admin/uploads/332492_p86867mscan0001.jpg" class="card-img w-100" alt="...">
-               </div>
-               <div class="card-footer bg-white border-0">
-                  <h5 class="card-title  text-center">SÁCH MỚI</h5>
-               </div>
-            </div>
-         </div>
-         <div class="col mt-5">
-            <div class="card border-success">
-               <div class="card-header bg-white text-center border-0">
-                  <h5 class="card-title">SÁCH BÁN CHẠY</h5>
-               </div>
-               <div class="card-body">
-                  <img src="./admin/uploads/332492_p86867mscan0001.jpg" class="card-img w-100" alt="...">
-               </div>
-               <div class="card-footer bg-white border-0">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Tác giả</p>
-                  <p class="card-text">Giá</p>
+         <?php
+         while ($row = $result->fetch_array()) {
+         ?>
+            <div class="col mt-<?= rand(1, 5) ?>">
+               <div class="card border-success">
+                  <div class="card-header bg-success border-0">
+                     <h5 class="card-title text-center text-white">SÁCH MỚI</h5>
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title"><?= $row['title'] ?></h5>
+                     <p class="card-text"><?= str_limit($row['description_book']) ?></p>                     
+                  </div>
+                  <div class="card-footer bg-white border-0">
+                     <img src="./admin/uploads/<?= $row['image_path']?>" class="card-img w-100 mb-2" alt="...">
+                     <a href="./detail.php?id=<?= $row['id_book']?>" class="btn btn-sm btn-outline-success w-100">Xem Ngay</a>
+                  </div>
                </div>
             </div>
-         </div>
-         <div class="col mt-3">
-            <div class="card border-success">
-               <div class="card-header bg-white border-0">
-                  <img src="./admin/uploads/332492_p86867mscan0001.jpg" class="card-img w-100" alt="...">
-               </div>
-               <div class="card-body text-center">
-                  <h5 class="card-title">SÁCH MỚI</h5>
-               </div>
-               <div class="card-footer bg-white border-0">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Tác giả</p>
-                  <p class="card-text">Giá</p>
-               </div>
-            </div>
-         </div>
-         <div class="col mt-4">
-            <div class="card border-success">
-               <div class="card-header bg-white border-0">
-                  <h5 class="card-title">SÁCH BÁN CHẠY</h5>
-               </div>
-               <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text">Last updated 3 mins ago</p>
-               </div>
-               <div class="card-footer bg-white border-0">
-                  <img src="./admin/uploads/332492_p86867mscan0001.jpg" class="card-img w-100" alt="...">
-               </div>
-            </div>
-         </div>
+         <?php } ?>
       </div>
    </div>
    <hr>

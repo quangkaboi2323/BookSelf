@@ -42,10 +42,10 @@
                </ul>
             </li>
          </ul>
-         <form action="" class="d-flex">
+         <form action="./products.php" method="get" class="d-flex">
             <div class="input-group">
-               <input type="search" class="form-control border-0" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="search-addon" />
-               <button type="button" class="btn btn-outline bg-white text-success"><b>Tìm kiếm</b></button>
+               <input type="text" name="search" class="form-control border-0" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="search-addon" />
+               <button type="submit" class="btn btn-outline bg-white text-success"><b>Tìm kiếm</b></button>
             </div>
          </form>
       </div>

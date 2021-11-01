@@ -17,3 +17,4 @@
 </head>
 
 <body>
+<?php require './admin/config.php' ?>

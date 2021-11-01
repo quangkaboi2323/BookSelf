@@ -37,5 +37,5 @@
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
 </body>
-
+<?php $conn->close(); ?>
 </html>

@@ -101,7 +101,7 @@ function str_limit($value, $limit = 250, $end = '...')
                      </tfoot>
                      <tbody>
                         <?php
-                        $books = "SELECT * FROM books a, categories b WHERE a.category_id = b.id";
+                        $books = "SELECT * FROM books a, categories b WHERE a.category_id = b.id ORDER BY a.date_created DESC";
                         $result = $conn->query($books);
 
                         if ($result->num_rows > 0) {
