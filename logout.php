@@ -4,5 +4,5 @@ session_unset();
 session_destroy();
 // unset($_SESSION["id"]);
 // unset($_SESSION["name"]);
-header("Location: login.php");
+header("Location: index.php");
 ?>

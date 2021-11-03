@@ -15,11 +15,18 @@
 
 <?php
 session_start();
+require './config.php';
+
+if (isset($_SESSION['client'])) {
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+}
+
 if (!isset($_SESSION['id'])) {
     header('Location: login.php');
 }
 
-require './config.php';
 ?>
 
 <body class="sb-nav-fixed">

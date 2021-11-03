@@ -17,32 +17,32 @@
 
 session_start();
 
+if (isset($_SESSION['id'])) {
+    header("Location: index.php");
+}
+
 if (isset($_POST['submit'])) {
     require './config.php';
 
     $inputUsername = $_POST['inputUsername'];
     $inputPassword = md5($_POST['inputPassword']);
 
-    if(!$conn) echo "true";
-
     $query = "SELECT * FROM `users` WHERE `username` = '$inputUsername' AND `password` = '$inputPassword'";
-    $result = $conn->query($query);                    
+    $result = $conn->query($query);
 
-    if($result->num_rows == 0) {
+    if ($result->num_rows == 0) {
         $err = "Sai mật khẩu hoặc tài khoản!!!";
     } else {
         $row = mysqli_fetch_array($result);
-        
-        if(is_array($row)) {
+
+        if (is_array($row)) {
             $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
+
+            header("Location: index.php");
         } else {
             $err = "Sai mật khẩu hoặc tài khoản!!!";
         }
-    }    
-
-    if(isset($_SESSION['id'])) {
-        header("Location: index.php");
     }
 }
 
@@ -79,12 +79,12 @@ if (isset($_POST['submit'])) {
                                             <div class="text-center">
                                                 <input type="submit" value="Đăng nhập" class="btn btn-primary" name="submit">
                                             </div>
-                                        </div>                                        
+                                        </div>
                                     </form>
                                 </div>
                                 <div class="card-footer" <?php echo isset($err) ? "" : "hidden" ?>>
                                     <div class="text-center text-danger h5">
-                                        <?php echo isset($err) ? $err : "" ?>                                                                       
+                                        <?php echo isset($err) ? $err : "" ?>
                                     </div>
                                 </div>
                             </div>

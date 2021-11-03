@@ -1,7 +1,25 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
    <div class="container">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-         <li class="nav-item">Đăng nhập | Đăng ký</li>
+         <li class="nav-item">
+            <?php if (isset($_SESSION['id'])) { ?>
+               <span class="dropdown">
+                  <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                     Xin chào <?= $_SESSION['name'] ?>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                     <li><a class="dropdown-item" href="./customer.php">Quản lý tài khoản</a></li>
+                  </ul>
+               </span>
+               <?php
+               ?>
+               | <a href="./logout.php" class="btn btn-sm text-dark" style="text-decoration: none">Đăng xuất</a>
+            <?php
+            } else { ?>
+               <a href="./login.php" class="text-dark btn btn-sm" style="text-decoration: none">Đăng nhập</a> |
+               <a href="./register.php" class="text-dark btn btn-sm" style="text-decoration: none">Đăng ký</a>
+            <?php } ?>
+         </li>
       </ul>
       <form class="d-flex" action="./cart.php">
          <button class="btn btn-sm btn-outline-dark" type="submit">

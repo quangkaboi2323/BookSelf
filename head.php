@@ -17,4 +17,6 @@
 </head>
 
 <body>
-<?php require './admin/config.php' ?>
+<?php 
+require './admin/config.php';
+session_start(); ?>

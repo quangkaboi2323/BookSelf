@@ -3,7 +3,7 @@ include './head.php';
 include './header.php';
 
 //set default when open this page
-$rowPerPage = 1;
+$rowPerPage = 20;
 if (!isset($_GET['page'])) {
     $_GET['page'] = 1;
 }

@@ -1,5 +1,24 @@
 <?php
 include './menu.php';
+
+if (isset($_POST['submitCreate'])) {
+   $name = $_POST['name'];
+   $username = $_POST['username'];
+   $password = md5($_POST['password']);
+   $type = $_POST['type'];
+
+   $existUser = "SELECT * FROM users WHERE username = '$username'";
+   $result = $conn->query($existUser);
+
+   if ($result->num_rows > 0) {
+      $err = "Tài khoản đã tồn tại";
+   } else {
+      $createUser = "INSERT INTO `users`(`name`, `username`, `password`, `type`) 
+                        VALUES ('$name','$username','$password','$type')";
+      $result = $conn->query($createUser);
+      header('location: users.php');
+   }
+}
 ?>
 
 <div id="layoutSidenav">
@@ -12,6 +31,9 @@ include './menu.php';
                <li class="breadcrumb-item active">Chào mừng trở lại <span><?= $_SESSION['name'] ?></span> !</li>
             </ol>
             <!-- Button trigger modal -->
+            <b class="form-control col text-center border border-danger text-danger mb-2" style="background-color: #ffe6e6" <?php echo isset($err) ? "" : "hidden" ?>>
+               <?php echo isset($err) ? $err : "" ?>
+            </b>
             <button type="button" class="btn btn-primary w-100 mb-4" data-bs-toggle="modal" data-bs-target="#add">
                <i class="fas fa-plus"></i> Thêm người dùng
             </button>
@@ -40,7 +62,7 @@ include './menu.php';
                         </div>
                         <div class="modal-footer">
                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                           <input type="submit" name="submit" value="Lưu" class="btn btn-primary">
+                           <input type="submit" name="submitCreate" value="Lưu" class="btn btn-primary">
                         </div>
                      </div>
                   </div>
