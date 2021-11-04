@@ -1,15 +1,5 @@
 <?php
+session_start();
+$date = date('YhdHis').$_SESSION['id'];
 
-$to_email = "nhvquangc3tbt@gmail.com";
-$subject = "Simple email test via PHP";
-$body = "hello";
-$headers = "From: email";
-
-if(mail($to_email,$subject,$body,$headers))
-{
-    echo "OK";
-}
-else{
-    echo "Failed";
-}
-?>
+echo $date;

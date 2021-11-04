@@ -83,7 +83,7 @@ if (!isset($_GET['category']) && !isset($_GET['search'])) {
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-sm btn-outline-success mt-auto" href="#">Thêm vào giỏ hàng</a></div>
+                                            <div class="text-center"><a class="btn btn-sm btn-outline-success mt-auto" href="./actioncart.php?id=<?= $row['id_book'] ?>">Thêm vào giỏ hàng</a></div>
                                         </div>
                                     </div>
                                 </a>

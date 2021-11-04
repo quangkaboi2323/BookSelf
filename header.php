@@ -21,11 +21,25 @@
             <?php } ?>
          </li>
       </ul>
-      <form class="d-flex" action="./cart.php">
+      <form class="d-flex" action="./<?= isset($_SESSION['client']) ? "cart" : "login" ?>.php">
          <button class="btn btn-sm btn-outline-dark" type="submit">
             <i class="bi-cart-fill me-1"></i>
             Giỏ hàng
-            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+            <span class="badge bg-dark text-white ms-1 rounded-pill">
+               <?php
+               if (isset($_SESSION['client'])) {
+                  $id = $_SESSION['id'];
+                  $myCart = $conn->query("SELECT * FROM carts WHERE `user_id` = '$id'");
+                  $total = 0;
+                  while ($row = $myCart->fetch_array()) {
+                     $total += $row['qty'];
+                  }
+                  echo $total;
+               } else {
+                  echo 0;
+               }
+               ?>
+            </span>
          </button>
       </form>
    </div>

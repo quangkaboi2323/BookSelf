@@ -1,16 +1,15 @@
 <?php
 include './head.php';
-include './header.php';
 
 if (!isset($_SESSION['client'])) {
    header('location: ./index.php');
 }
 
+include './header.php';
+
+
 $id = $_SESSION['id'];
 $currentCus = $conn->query("SELECT * FROM customers WHERE id = '$id'");
-if ($currentCus->num_rows == 0) {
-   header('location: ./404.php');
-}
 $row = $currentCus->fetch_assoc();
 
 if (is_array($row)) {
@@ -31,7 +30,6 @@ if (isset($_POST['submitUpdate'])) {
          $updateCustomer = $conn->query("UPDATE `customers` SET `name`='$nameCustomer',`address`='$addressCustomer',`contact`='$numberCustomer' 
                                           WHERE id = '$id'");
          $_SESSION['name'] = $nameCustomer;
-         header('location: ./customer.php');
       } else {
          $updateErr = "Nhập sai số điện thoại";
       }
@@ -50,7 +48,6 @@ if (isset($_POST['submitChangePass'])) {
 
          $changePass = $conn->query("UPDATE `customers` SET `password`='$newPass'
                                           WHERE id = '$id'");
-         header('location: ./customer.php');
       } else {
          $changePassErr = "Mật khẩu mới không khớp!";
       }
