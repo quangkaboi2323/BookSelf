@@ -38,6 +38,7 @@ if (isset($_POST['submit'])) {
         if (is_array($row)) {
             $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
+            $_SESSION['role'] = $row['type'];
 
             header("Location: index.php");
         } else {

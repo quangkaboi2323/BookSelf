@@ -34,7 +34,7 @@ if (isset($_POST['submitCreate'])) {
             <b class="form-control col text-center border border-danger text-danger mb-2" style="background-color: #ffe6e6" <?php echo isset($err) ? "" : "hidden" ?>>
                <?php echo isset($err) ? $err : "" ?>
             </b>
-            <button type="button" class="btn btn-primary w-100 mb-4" data-bs-toggle="modal" data-bs-target="#add">
+            <button type="button" class="btn btn-primary w-100 mb-4" data-bs-toggle="modal" data-bs-target="#add" <?= $_SESSION['role'] == 0 ? "disabled" : "" ?>>
                <i class="fas fa-plus"></i> Thêm người dùng
             </button>
 
@@ -71,7 +71,7 @@ if (isset($_POST['submitCreate'])) {
             <div class="card mb-4">
                <div class="card-header">
                   <i class="fas fa-table me-1"></i>
-                  Danh sách sách
+                  Danh sách tài khoản
                </div>
                <div class="card-body">
                   <table id="datatablesSimple">
@@ -107,7 +107,7 @@ if (isset($_POST['submitCreate'])) {
                                  <td><?= $row['name'] ?></td>
                                  <td><?= $row['username'] ?></td>
                                  <td><?= $row['type'] ? "Quản trị" : "Nhân viên" ?></td>
-                                 <td class="text-center">
+                                 <td class="text-center" <?= $_SESSION['role'] == 0 ? "hidden" : "" ?>>
                                     <div>
                                        <!-- Button trigger modal of detail-->
                                        <form action="./users.php" method="post">
