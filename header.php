@@ -61,18 +61,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="./products.php"><b class="text-white">SẢN PHẨM</b></a></li>
-            <li class="nav-item"><a class="nav-link" href="#!"><b class="text-white">CHI TIẾT WEBSITE</b></a></li>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><b class="text-white">BÀI TẬP</b></a>
-               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#!">All Products</a></li>
-                  <li>
-                     <hr class="dropdown-divider" />
-                  </li>
-                  <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                  <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-               </ul>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="./about.php"><b class="text-white">CHI TIẾT WEBSITE</b></a></li>
+            <li class="nav-item"><a class="nav-link" href="./homework.php"><b class="text-white">BÀI TẬP</b></a></li>
          </ul>
          <form action="./products.php" method="get" class="d-flex">
             <div class="input-group">

@@ -27,8 +27,8 @@
 
    <!-- Copyright -->
    <div class="text-center text-dark p-3 bg-success text-white">
-      © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      © 2021 Copyright:
+      <a class="text-white" href="">quang.nhv.60cntt@ntu.edu.vn</a>
    </div>
    <!-- Copyright -->
 </footer>

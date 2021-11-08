@@ -71,7 +71,10 @@
             </div>
         </main>
 
-        <?php include './footer.php'; ?>
+
+        <?php 
+        include './chart.php';
+        include './footer.php'; ?>
 
     </div>
 </div>

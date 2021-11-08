@@ -64,9 +64,9 @@ $category_id = $row['category_id'];
                      <div class="card-body">
                         <div class="text-center text-dark">
                            <!-- Product name-->
-                           <p><span><?= $row['title'] ?></span></p>
+                           <p style="height: 50px"><span><?= $row['title'] ?></span></p>
                            <!-- Product price-->
-                           <b class="text-danger"><?= number_format($row['price'], 0, ',', '.') ?> VND</b>
+                           <b class="text-danger bg-white"><?= number_format($row['price'], 0, ',', '.') ?> VND</b>
                         </div>
                      </div>
                      <!-- Product actions-->

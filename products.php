@@ -15,7 +15,7 @@ if (isset($_GET['category'])) {
     $nameCate = $result->fetch_assoc();
     $offset = ($_GET['page'] - 1) * $rowPerPage;
 
-    $books = $conn->query("SELECT * FROM books WHERE category_id = $cate LIMIT $offset, $rowPerPage");
+    $books = $conn->query("SELECT * FROM books WHERE category_id = $cate ORDER BY title DESC LIMIT $offset, $rowPerPage");
 }
 
 //find books has same value of research input
@@ -23,14 +23,14 @@ if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $offset = ($_GET['page'] - 1) * $rowPerPage;
 
-    $books = $conn->query("SELECT * FROM books WHERE title LIKE '%$search%' OR author LIKE '%$search%' LIMIT $offset, $rowPerPage");
+    $books = $conn->query("SELECT * FROM books WHERE title LIKE '%$search%' OR author LIKE '%$search%' ORDER BY title DESC LIMIT $offset, $rowPerPage");
 }
 
 //find all books
 if (!isset($_GET['category']) && !isset($_GET['search'])) {
     $offset = ($_GET['page'] - 1) * $rowPerPage;
 
-    $books = $conn->query("SELECT * FROM books LIMIT $offset, $rowPerPage");
+    $books = $conn->query("SELECT * FROM books ORDER BY title DESC LIMIT $offset, $rowPerPage");
 }
 ?>
 <div class="container py-2">
@@ -76,9 +76,9 @@ if (!isset($_GET['category']) && !isset($_GET['search'])) {
                                         <div class="card-body">
                                             <div class="text-center text-dark">
                                                 <!-- Product name-->
-                                                <p><span><?= $row['title'] ?></span></p>
+                                                <p style="font-size: 12px; height:40px"><span><?= $row['title'] ?></span></p>
                                                 <!-- Product price-->
-                                                <b class="text-danger"><?= number_format($row['price'], 0, ',', '.') ?> VND</b>
+                                                <b class="text-danger bg-white"><?= number_format($row['price'], 0, ',', '.') ?> VND</b>
                                             </div>
                                         </div>
                                         <!-- Product actions-->
@@ -91,8 +91,7 @@ if (!isset($_GET['category']) && !isset($_GET['search'])) {
                         <?php } ?>
                     </div>
                 </div>
-            </section>
-
+            </section>                    
         </div>
     </div>
 </div>

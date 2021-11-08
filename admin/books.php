@@ -50,7 +50,7 @@ function str_limit($value, $limit = 250, $end = '...')
                               </div>
                            </div>
                            <label for="desc">Mô tả</label>
-                           <textarea id="desc" name="desc" class="form-control" placeholder="" required></textarea>
+                           <textarea id="desc" name="desc" class="form-control" rows="7" placeholder="" required></textarea>
                            <label for="category">Thể loại</label>
                            <Select name="category" id="category" class="form-control">
                               <?php
